@@ -22,6 +22,13 @@ app.get('/', function (req, res) {
 
 app.post('/publish/:device', function (req, res) {
   req.body.metric = req.body.metric.replace(/\W+/g, '_');
+  if (req.body.value === 'closed' || req.body.value === 'inactive') {
+    req.body.value = '0';
+  }
+  if (req.body.value === 'open' || req.body.value === 'active') {
+    req.body.value = '1';
+  }
+
   console.log(`smartthings.${req.params.device}.${req.body.metric} ${req.body.value} ${req.body.measure_time}`);
   graphiteClient.write({ [`smartthings.${req.params.device}.${req.body.metric}`]: req.body.value });
   res.send('OK');
