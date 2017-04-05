@@ -1,4 +1,4 @@
-FROM node:6.6.0
+FROM node:7.8
 
 # Create app directory
 RUN mkdir -p /usr/src/app
@@ -12,5 +12,4 @@ RUN mkdir -p /usr/src/app && cp -a /tmp/node_modules /usr/src/app
 # Bundle app source
 COPY . /usr/src/app
 
-EXPOSE 3000
 CMD [ "npm", "start" ]
