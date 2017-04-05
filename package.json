@@ -1,5 +1,6 @@
 {
-  "name": "smartthings_graphite",
+  "name": "mqtt_graphite",
+  "private": true,
   "version": "1.0.1",
   "description": "",
   "main": "index.js",
@@ -21,9 +22,7 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
     "graphite": "0.0.7",
-    "morgan": "^1.7.0"
+    "mqtt": "^2.5.2"
   }
 }
